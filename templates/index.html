@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+
+    <h1 class="dashboard-title">🎓 Student Performance Prediction</h1>
+
+    <form action="/predict" method="post">
+
+        <div class="row">
+
+            <div class="input-box">
+                <label>Hours Studied</label>
+                <input type="number" name="Hours_Studied" required>
+            </div>
+
+            <div class="input-box">
+                <label>Attendance</label>
+                <input type="number" name="Attendance" required>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-box">
+                <label>Parental Involvement</label>
+                <select name="Parental_Involvement">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>Access to Resources</label>
+                <select name="Access_to_Resources">
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="input-box">
+                <label>Extracurricular Activities</label>
+                <select name="Extracurricular_Activities">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>Sleep Hours</label>
+                <input type="number" name="Sleep_Hours" required>
+            </div>
+
+        </div>
+        <div class="row">
+
+    <div class="input-box">
+        <label>Previous Scores</label>
+        <input type="number" name="Previous_Scores" required>
+    </div>
+
+    <div class="input-box">
+        <label>Motivation Level</label>
+        <select name="Motivation_Level">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="input-box">
+        <label>Internet Access</label>
+        <select name="Internet_Access">
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+    </div>
+
+    <div class="input-box">
+        <label>Tutoring Sessions</label>
+        <input type="number" name="Tutoring_Sessions" required>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="input-box">
+        <label>Family Income</label>
+        <select name="Family_Income">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select>
+    </div>
+
+    <div class="input-box">
+        <label>Teacher Quality</label>
+        <select name="Teacher_Quality">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="input-box">
+        <label>School Type</label>
+        <select name="School_Type">
+            <option>Public</option>
+            <option>Private</option>
+        </select>
+    </div>
+
+    <div class="input-box">
+        <label>Peer Influence</label>
+        <select name="Peer_Influence">
+            <option>Negative</option>
+            <option>Neutral</option>
+            <option>Positive</option>
+        </select>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="input-box">
+        <label>Physical Activity</label>
+        <input type="number" name="Physical_Activity" required>
+    </div>
+
+    <div class="input-box">
+        <label>Learning Disabilities</label>
+        <select name="Learning_Disabilities">
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="input-box">
+        <label>Parental Education Level</label>
+        <select name="Parental_Education_Level">
+            <option>High School</option>
+            <option>College</option>
+            <option>Postgraduate</option>
+        </select>
+    </div>
+
+    <div class="input-box">
+        <label>Distance from Home</label>
+        <select name="Distance_from_Home">
+            <option>Near</option>
+            <option>Moderate</option>
+            <option>Far</option>
+        </select>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="input-box">
+        <label>Gender</label>
+        <select name="Gender">
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+    </div>
+
+</div>
+
+        <button class="predict-btn" type="submit">
+            Predict Score
+        </button>
+
+        {% if prediction_text %}
+        <div class="result-card">
+           {{ prediction_text }}
+        </div>
+        {% endif %}
+
+    </form>
+
+</div>
+
+</body>
+</html>
